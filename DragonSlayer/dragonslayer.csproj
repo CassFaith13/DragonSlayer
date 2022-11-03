@@ -7,6 +7,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <NoWarn>CS0219</NoWarn>
+    <NoWarn>CS8600</NoWarn>
   </PropertyGroup>
 
 </Project>

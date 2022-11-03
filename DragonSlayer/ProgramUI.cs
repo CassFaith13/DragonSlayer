@@ -43,9 +43,17 @@ public class ProgramUI
       while (knight.IsAlive) //Checks to see if Knight is alive
       {
          WriteLine("Welcome to your journey!");
-         knight.Points = 0;
-         WriteLine("You're DEAD! You lost all your armor. Better luck next time!");
-         EndGame();
+        
+
+         // if  (knight.Points = 0) {
+         //    WriteLine("You're DEAD! You lost all your armor. Better luck next time!");
+         //    EndGame();
+         // }
+
+         // else {
+
+         // }
+
       }
       ReadKey();
    }

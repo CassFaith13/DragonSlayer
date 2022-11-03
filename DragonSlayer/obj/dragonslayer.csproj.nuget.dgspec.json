@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/home/Documents/ElevenFiftyAcademy/ElevenFiftyAcademy160/codingFoundations/assignments/PairProgramming/console-game/DragonSlayer/dragonslayer.csproj": {}
+    "C:\\ElevenFiftyProjects\\codingFoundations\\dotnetProjects\\DragonslayerApp\\DragonSlayer\\dragonslayer.csproj": {}
   },
   "projects": {
-    "/Users/home/Documents/ElevenFiftyAcademy/ElevenFiftyAcademy160/codingFoundations/assignments/PairProgramming/console-game/DragonSlayer/dragonslayer.csproj": {
+    "C:\\ElevenFiftyProjects\\codingFoundations\\dotnetProjects\\DragonslayerApp\\DragonSlayer\\dragonslayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/home/Documents/ElevenFiftyAcademy/ElevenFiftyAcademy160/codingFoundations/assignments/PairProgramming/console-game/DragonSlayer/dragonslayer.csproj",
+        "projectUniqueName": "C:\\ElevenFiftyProjects\\codingFoundations\\dotnetProjects\\DragonslayerApp\\DragonSlayer\\dragonslayer.csproj",
         "projectName": "dragonslayer",
-        "projectPath": "/Users/home/Documents/ElevenFiftyAcademy/ElevenFiftyAcademy160/codingFoundations/assignments/PairProgramming/console-game/DragonSlayer/dragonslayer.csproj",
-        "packagesPath": "/Users/home/.nuget/packages/",
-        "outputPath": "/Users/home/Documents/ElevenFiftyAcademy/ElevenFiftyAcademy160/codingFoundations/assignments/PairProgramming/console-game/DragonSlayer/obj/",
+        "projectPath": "C:\\ElevenFiftyProjects\\codingFoundations\\dotnetProjects\\DragonslayerApp\\DragonSlayer\\dragonslayer.csproj",
+        "packagesPath": "C:\\Users\\1Crim\\.nuget\\packages\\",
+        "outputPath": "C:\\ElevenFiftyProjects\\codingFoundations\\dotnetProjects\\DragonslayerApp\\DragonSlayer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/home/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\1Crim\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -43,7 +43,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -52,7 +53,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.302/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }
