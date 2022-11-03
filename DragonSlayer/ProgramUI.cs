@@ -1,3 +1,4 @@
+using System.Threading.Tasks.Dataflow;
 using static System.Console;
 
 public class ProgramUI
@@ -30,6 +31,10 @@ public class ProgramUI
                isRunning = EndGame();
                break;
 
+            case "3":
+            KnightMove();
+            break; 
+
             default:
                System.Console.WriteLine("Invalid selection. Please try again!");
                break;
@@ -43,18 +48,25 @@ public class ProgramUI
       while (knight.IsAlive) //Checks to see if Knight is alive
       {
          WriteLine("Welcome to your journey!");
-        
-
-         // if  (knight.Points = 0) {
-         //    WriteLine("You're DEAD! You lost all your armor. Better luck next time!");
-         //    EndGame();
-         // }
-
-         // else {
-
-         // }
+        WriteLine("The princess has been taken by a dragon... Survive the 3 castle levels reach the dragon to save the princess!!");
+         WriteLine("Press any key to open the castle doors");
+         ReadKey(); 
+         
 
       }
+
+      // else {
+      //    if  (knight.Points = 0) {
+      //       WriteLine("You're DEAD! You lost all your armor. Better luck next time!");
+      //       EndGame();
+      //    }
+
+      // }
+
+
+
+
+
       ReadKey();
    }
    private bool EndGame() //Method that ends the game
@@ -70,7 +82,16 @@ public class ProgramUI
 
    }
 
+   private void KnightMove() {
+      Console.Clear();
+      WriteLine("You open the door and you see two paths, left and straight. Choose a path. \n" 
+      + "1. left \n" 
+      + "2. straight");
+   }
 }
+
+
+
 
 
 /*

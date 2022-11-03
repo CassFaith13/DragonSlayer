@@ -29,6 +29,17 @@ public class Knight
         }
     }
 
+    public bool killDragon {
+        get {
+            if (Points >= 2000) {
+                _killDragon = true; 
+            }
+            else {
+                 _killDragon = false; 
+                 IsAlive = false; 
+            }
+        }
+    }
 
     public int Points
     {
