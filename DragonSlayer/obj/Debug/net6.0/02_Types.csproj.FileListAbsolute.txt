@@ -1,0 +1,15 @@
+C:\ElevenFiftyProjects\codingFoundations\assignments\CsharpBasics\02_Types\bin\Debug\net6.0\02_Types.exe
+C:\ElevenFiftyProjects\codingFoundations\assignments\CsharpBasics\02_Types\bin\Debug\net6.0\02_Types.deps.json
+C:\ElevenFiftyProjects\codingFoundations\assignments\CsharpBasics\02_Types\bin\Debug\net6.0\02_Types.runtimeconfig.json
+C:\ElevenFiftyProjects\codingFoundations\assignments\CsharpBasics\02_Types\bin\Debug\net6.0\02_Types.dll
+C:\ElevenFiftyProjects\codingFoundations\assignments\CsharpBasics\02_Types\bin\Debug\net6.0\02_Types.pdb
+C:\ElevenFiftyProjects\codingFoundations\assignments\CsharpBasics\02_Types\obj\Debug\net6.0\02_Types.csproj.AssemblyReference.cache
+C:\ElevenFiftyProjects\codingFoundations\assignments\CsharpBasics\02_Types\obj\Debug\net6.0\02_Types.GeneratedMSBuildEditorConfig.editorconfig
+C:\ElevenFiftyProjects\codingFoundations\assignments\CsharpBasics\02_Types\obj\Debug\net6.0\02_Types.AssemblyInfoInputs.cache
+C:\ElevenFiftyProjects\codingFoundations\assignments\CsharpBasics\02_Types\obj\Debug\net6.0\02_Types.AssemblyInfo.cs
+C:\ElevenFiftyProjects\codingFoundations\assignments\CsharpBasics\02_Types\obj\Debug\net6.0\02_Types.csproj.CoreCompileInputs.cache
+C:\ElevenFiftyProjects\codingFoundations\assignments\CsharpBasics\02_Types\obj\Debug\net6.0\02_Types.dll
+C:\ElevenFiftyProjects\codingFoundations\assignments\CsharpBasics\02_Types\obj\Debug\net6.0\refint\02_Types.dll
+C:\ElevenFiftyProjects\codingFoundations\assignments\CsharpBasics\02_Types\obj\Debug\net6.0\02_Types.pdb
+C:\ElevenFiftyProjects\codingFoundations\assignments\CsharpBasics\02_Types\obj\Debug\net6.0\02_Types.genruntimeconfig.cache
+C:\ElevenFiftyProjects\codingFoundations\assignments\CsharpBasics\02_Types\obj\Debug\net6.0\ref\02_Types.dll
