@@ -3,7 +3,7 @@ public class Knight
 {
     public Knight()
     {
-        this.Points = 200; //Knight begins with 200 armor pts
+        int Points = 200; //Knight begins with 200 armor pts
 
     }
     private bool _isAlive;
@@ -29,17 +29,17 @@ public class Knight
         }
     }
 
-    public bool killDragon {
-        get {
-            if (Points >= 2000) {
-                _killDragon = true; 
-            }
-            else {
-                 _killDragon = false; 
-                 IsAlive = false; 
-            }
-        }
-    }
+    // public bool killDragon {
+    //     get {
+    //         if (Points >= 2000) {
+    //             _killDragon = true; 
+    //         }
+    //         else {
+    //              _killDragon = false; 
+    //              IsAlive = false; 
+    //         }
+    //     }
+    // }
 
     public int Points
     {
@@ -48,23 +48,3 @@ public class Knight
 
 
 }
-
-//Old C# way
-// public class MyClass
-// {
-//     private string _name;
-
-    //reading the data.....
-//     public string GetName()
-//     {
-//         return _name;
-//     }
-
-    //writing the data.....
-//     public void SetName(string value)
-//     {
-//         _name = value;
-//     }
-
-
-// }
