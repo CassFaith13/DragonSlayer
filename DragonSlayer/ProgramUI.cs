@@ -79,7 +79,6 @@ public class ProgramUI {
    }
 
    private void KnightMove() {
-      Console.Clear();
       WriteLine("You open the door and you see two paths, left and straight. Choose a path. \n" 
       + "1. left \n" 
       + "2. straight");
@@ -242,11 +241,8 @@ public class ProgramUI {
       switch (input)
       {
          case "1":
-         System.Console.WriteLine("Sorry, I must take 500 points. ");
-        Points= Points - 500;
-        System.Console.WriteLine("You now have " + Points + " points");
-          // add -500 points deduction - for most that means death
-         SixthMove();
+         System.Console.WriteLine("Sorry, You have open a box containing a bomb. You Died ");
+        EndGame();
          break;
          case "2":
          System.Console.WriteLine("You found the holy sword worth 100 points. ! Let it aid you on your quest! ");
@@ -260,7 +256,7 @@ public class ProgramUI {
          Points= Points - 200;
          System.Console.WriteLine("You now have " + Points + " points!");
           // add -200 points deduction
-         FourthMove();
+          SixthMove();
          break;
             default:
             System.Console.WriteLine("Invalid selection. Please try again!");
@@ -289,8 +285,10 @@ public class ProgramUI {
          break;
          case "3":
          System.Console.WriteLine("You got straight. There is a stairway. You walk up the stairs. CONGRATULATIONS! You've made it to LEVEL THREE. There is something shiny...");
-          SixthMove();
-         // SeventhMove();
+         System.Console.WriteLine("At the top of the staircase you see a bright gold treasure chest!!! You have received 500 points!");
+         Points= Points + 500;
+         System.Console.WriteLine("You now have " + Points + " points!");
+         SeventhMove();
          break;
          default:
          System.Console.WriteLine("Invalid selection. Please try again!");
@@ -298,12 +296,143 @@ public class ProgramUI {
       }
    }
 
+ private void SeventhMove()
+   {
+      System.Console.WriteLine("Now you see there are two paths ahead: left and straight. Choose a path.\n"
+      + "1. left\n"
+      + "2. straight");
+
+      string? input = Console.ReadLine();
+
+      switch (input)
+      {
+         case "1":
+         System.Console.WriteLine("You turn left.  ");
+         EightMove(); 
+         break;
+         case "2":
+         System.Console.WriteLine("You turn right.");
+            ChestDead2Move(); 
+            break;
+            default:
+            System.Console.WriteLine("Invalid selection. Please try again!");
+            break;
+      }
+   }
+
+   private void  EightMove() {
+System.Console.WriteLine("You go down a dark hallway you see two chest and you can only open one. Choose wisely!\n"
+      + "1. chest 1 \n"
+      + "2. chest 2");
+
+      string? input = Console.ReadLine();
+
+      switch (input)
+      {
+         case "1":
+         System.Console.WriteLine("You open the first. You been bamboozled it was a mimic monster. It BITES you and you lose all your points\n"
+          + "GAME OVER");
+         Points = 0; 
+          EndGame(); 
+         break;
+         case "2":
+         System.Console.WriteLine("You open the second chest. You find rare armor and gain 1000 points.");
+         Points = Points + 1000;
+         System.Console.WriteLine("You now have " + Points + " points!");
+            NinthMove(); 
+            break;
+            default:
+            System.Console.WriteLine("Invalid selection. Please try again!");
+            break;
+      }
+   }
+
+    private void ChestDead2Move() 
+   {
+      System.Console.WriteLine(" You go around a hallway with some twists and turns. You reach another two paths. \n"
+      + "1. right\n"
+      + "2. left");
+
+      string? input = Console.ReadLine();
+
+      switch (input)
+      {
+         case "1":
+         System.Console.WriteLine("You turn right.");
+         ChestDead3Move();
+         break;
+         case "2":
+         System.Console.WriteLine("You turn left. You see a skeleton leaning against a dead end and you turn back.");
+            ChestDead2Move();
+            break;
+            default:
+            System.Console.WriteLine("Invalid selection. Please try again!");
+            break;
+      }
+   }
+
+    private void ChestDead3Move() 
+   {
+      System.Console.WriteLine(" You go around a hallway with some twists and turns. You reach another two paths. \n"
+      + "1. right\n"
+      + "2. left");
+
+      string? input = Console.ReadLine();
+
+      switch (input)
+      {
+         case "1":
+         System.Console.WriteLine("You turn right. You go down a long hallway and find a shiny chest with boots worth 400 points");
+         Points = Points + 400;
+         System.Console.WriteLine("You now have " + Points + " points!/n"
+         + "You go all the way back to the stair case and take the other path.");
+         EightMove();
+         break;
+         case "2":
+         System.Console.WriteLine("You turn left. You fall through the floor and DIED!!!\n"
+          + "GAME OVER");
+         Points = 0; 
+         EndGame(); 
+            break;
+            default:
+            System.Console.WriteLine("Invalid selection. Please try again!");
+            break;
+      }
+   }
+
+  private void  NinthMove() {
+      System.Console.WriteLine("You open the doors and see the dragon!!! You fight the dragon.");
+      System.Console.WriteLine("Press any key");
+      ReadKey(); 
+      System.Console.WriteLine(Points);
+
+      if (Points >= 2450) {
+      System.Console.WriteLine("You kill the dragon and save the princess. The princess is so moved by your efforts.\n"
+      + "You marry the princes and become the king! \n"
+      + "THE END");
+         EndGame(); 
+      }
+
+     else if (Points >= 1900 && Points < 2450){
+        System.Console.WriteLine("You kill the dragon and save the princess\n" 
+        + "The princess is grateful, she throws you a party and you gain a nobel title. THE END");
+        EndGame(); 
+     }
+
+     else {
+      System.Console.WriteLine("You didn't have enough points to defeat the dragon so you DIED! \n" 
+      + "Start Over");
+        EndGame(); 
+     }
+
+   }
 
 
 
     // switch cases going through castle
 
 }
+
 
 
 
