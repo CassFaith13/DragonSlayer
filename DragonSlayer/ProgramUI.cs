@@ -457,8 +457,7 @@ public class ProgramUI
          EndGame(); 
       }
 
-      else if (Points >= 2000)
-      //&& Points < 2250
+      else if (Points >= 2000) //&& Points < 2250 It works without it this because we placed >=2450 above this and the computer reads top to bottom.
       {
          ForegroundColor = ConsoleColor.Yellow;
          WriteLine("\n"
