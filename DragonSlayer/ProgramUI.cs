@@ -458,3 +458,17 @@ public class ProgramUI
       }
    }
 }
+
+/*
+MOST POINTS: Start(200), Left, Right, Right(250), Right, Left, Open(200), Box 2(100), Straight(500), Straight, Right, Right(400), Chest 2(1000): 2650 Points
+GOOD: Start(200), Left, Right, Right(250), Right, Right, Box 3(-200), Straight(500), Straight, Right, Right(400), Chest 2(1000): 2150 Points
+FAIL: Start(200), Left, Right, Right(250), Right, Right, Box 3(-200), Straight(500), Left, Chest 2(1000): 1750 Points
+DEATH: Start, Left, Right, Right, Right, Right, Box 1: :skull_and_crossbones:
+
+SECOND MOST POINTS: Start(200), Left, Right, Right(250), Right, Left, Turn Around, Box 2(100), Straight(500), Straight, Right, Right(400), Chest 2(1000): 2450 Points
+GOOD: Start(200), Left, Right, Right(250), Right, Left, Open(200), Box2(100), Straight(500), Left, Chest 2(1000): 2250 Points
+GOOD: Start(200), Left, Right, Right(250), Right, Right, Box 2(100), Straight(500), Left, Chest 2(1000): 2050 Points
+FAIL: Start(200), Left, Right, Right(250), Right, Left, Open(200), Box 3 (-200), Straight(500), Left, Chest 2(1000): 1950 Points
+DEATH: Start, Left, Right, Right, Right, Right, Box 2 or 3, Straight, Straight, Right, Right, Chest 1: :skull_and_crossbones:
+DEATH: Start, Left, Right, Right, Right, Left, Open, Box 2 or 3, Straight, Straight, Right, Left: :skull_and_crossbones:
+*/
