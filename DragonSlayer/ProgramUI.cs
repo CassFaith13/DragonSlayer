@@ -440,7 +440,7 @@ public class ProgramUI
       //&& Points < 2250
       else if (Points >= 2000) //&& Points < 2250 It works without it this because we placed >=2450 above this and the computer reads top to bottom.
       {
-         ForegroundColor = ConsoleColor.Yellow;
+         ForegroundColor = ConsoleColor.Magenta;
          WriteLine("\n"
          + "You block his teeth with your shield and your sword is knocked away. The dragon has you cornered! As he bares his teeth to attack you hear a slashing sound and he drops to the ground. The princess has your sword and has slayed the dragon! The sword must have fallen within her reach and she escaped the chains and saved you!\n"
          + "The princess is grateful for you help. She throws you a party and you gain a noble title.");
