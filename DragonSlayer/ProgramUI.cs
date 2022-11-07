@@ -1,20 +1,15 @@
 using static System.Console;
-
 public class ProgramUI 
 {
    private Knight knight = new Knight();
    public int Points; //It was not starting with 200 points, but need this to use Points.
-
-
    public void Run()
    {
       RunApplication();
    }
-
    private void RunApplication()
    {
       bool isRunning = true;
-
       while (isRunning)
       {
          WriteLine("\n"
@@ -22,30 +17,24 @@ public class ProgramUI
          + "\n"
          + "1. Start Game\n" 
          + "2. End Game\n");
-
          string? userInput = ReadLine();
-
          switch (userInput)
          {
             case "1":
             StartGame();
             break;
-
             case "2":
             isRunning = EndGame();
             break;
-
             case "3":
             KnightMove();
             break; 
-
             default:
             WriteLine("Invalid selection. Please try again!");
             break;
             }
       }
    }
-
    private void StartGame() //Method to begin playing the game
    {
       Clear();
@@ -61,29 +50,24 @@ public class ProgramUI
       KnightMove();
       ReadKey();
    }
-
    private bool EndGame() //Method that ends the game
    {
       PressAnyKey();
       Points = 0; //If you died or restarted the game you would continue racking up points even after defeating the dragon.
       return false;
    }
-
    private void PressAnyKey() //Method to read key inputs
    {
       WriteLine("Press any key to continue.");
       ReadKey();
    }
-
    private void KnightMove() 
    {
       WriteLine("\n" //Adding a blank line for better readability
       + "You open the castle door and you see two paths in front of you: left and straight. Choose a path.\n" 
       + "1. Left\n" 
       + "2. Straight");
-
       string? input = ReadLine();
-
       switch (input)
       {
          case "1":
@@ -99,14 +83,12 @@ public class ProgramUI
          break;
       }
    }
-
    private void FirstMove() 
    {
       WriteLine("\n"
       + "The two paths in front of you are straight and right. Choose a path.\n"
       + "1. Straight\n"
       + "2. Right");
-
       string? input = ReadLine();
       
       switch (input)
@@ -124,14 +106,12 @@ public class ProgramUI
          break;
       }
    }
-
    private void SecondMove()
    {
       WriteLine("\n"
       + "The two paths you reached are straight and right. Choose a path.\n"
       + "1. Straight\n"
       + "2. Right");
-
       string? input = ReadLine();
       
       switch (input)
@@ -151,7 +131,6 @@ public class ProgramUI
          break;
       }
    }
-
    private void ThirdMove()
    {
       ForegroundColor = ConsoleColor.Yellow;
@@ -163,9 +142,7 @@ public class ProgramUI
       WriteLine("Now you see there are two paths ahead: left and right. Choose a path.\n"
       + "1. Left\n"
       + "2. Right");
-
       string? input = ReadLine();
-
       switch (input)
       {
          case "1":
@@ -182,16 +159,13 @@ public class ProgramUI
          break;
       }
    }
-
    private void FourthMove() 
    {
       WriteLine("\n"
       + "Now you see there are two paths ahead: left and right. Choose a path.\n"
       + "1. Left\n"
       + "2. Right");
-
       string? input = ReadLine();
-
       switch (input)
       {
          case "1":
@@ -207,16 +181,13 @@ public class ProgramUI
          break;
       }
    }
-
    private void ChestDeadMove() 
    {
       WriteLine("\n"
       + "After taking some turns in the dark you find a door covered in blood. Shall you go in or should you turn back...?\n"
       + "1. Open the door...\n"
       + "2. Turn around and leave! I'm not crazy.");
-
       string? input = ReadLine();
-
       switch (input)
       {
          case "1":
@@ -237,7 +208,6 @@ public class ProgramUI
          break;
       }
    }
-
    private void FifthMove() 
    {
       WriteLine("\n"
@@ -247,8 +217,19 @@ public class ProgramUI
       + "2. Box 2 \n"
       + "3. Box 3");
 
-      string? input = ReadLine();
+      System.Console.WriteLine("            / *.               ");
+      System.Console.WriteLine("           /    *.             ");
+      System.Console.WriteLine("      -===-:-._.-:-.===-       ");
+      System.Console.WriteLine("         ': o   o  :'          ");
+      System.Console.WriteLine("        .'. -.^,.-.'.          ");
+      System.Console.WriteLine("      |''.,_ , , _,.''|        ");
+      System.Console.WriteLine("      |               |        "); 
+      System.Console.WriteLine(" .—————.    .—————.    .—————. ");
+      System.Console.WriteLine(" |  1  |    |  2  |    |  3  | ");
+      System.Console.WriteLine(" |_____|    |_____|    |_____| ");
 
+
+      string? input = ReadLine();
       switch (input)
       {
          case "1":
@@ -262,6 +243,7 @@ public class ProgramUI
          WriteLine("Oh my! You found the Holy Sword worth 100 armor points! Let it aid you on your quest!");
          Points = Points + 100;
          WriteLine("You now have " + Points + " armor points"); // add +100 points
+         System.Console.WriteLine("o----(::::::::::>");
          ResetColor();
          SixthMove();
          break;
@@ -278,7 +260,6 @@ public class ProgramUI
          break;
       }
    }
-
    private void SixthMove()
    {
       WriteLine("\n"
@@ -286,7 +267,6 @@ public class ProgramUI
       + "1. Left\n"
       + "2. Straight\n"
       + "3. Right");
-
       string? input = ReadLine();
       
       switch (input)
@@ -316,16 +296,13 @@ public class ProgramUI
          break;
       }
    }
-
    private void SeventhMove()
    {
       WriteLine("\n"
       + "You're almost to the tower. You can hear the dragon roaring in the distance. Now you see there are two paths ahead: left and straight. Choose a path.\n"
       + "1. Left\n"
       + "2. Straight");
-
       string? input = ReadLine();
-
       switch (input)
       {
          case "1":
@@ -341,16 +318,13 @@ public class ProgramUI
          break;
       }
    }
-
    private void ChestDead2Move() 
    {
       WriteLine("\n"
       + "You follow the glow and walk through some twists and turns. You reach another two paths. One path is dark and the other has the dull glow you have been following. Choose a path.\n"
       + "1. Left\n"
       + "2. Right");
-
       string? input = ReadLine();
-
       switch (input)
       {
          case "1":
@@ -366,16 +340,13 @@ public class ProgramUI
          break;
       }
    }
-
    private void ChestDead3Move() 
    {
       WriteLine("\n"
       + "You walk down the hallway with even more twists and turns. You reach another two paths. They both have a dull light shining in the distance. Curious.\n"
       + "1. Left\n"
       + "2. Right");
-
       string? input = ReadLine();
-
       switch (input)
       {
          case "1":
@@ -400,7 +371,6 @@ public class ProgramUI
          break;
       }
    }
-
    private void  EighthMove()
    {
       WriteLine("\n"
@@ -408,8 +378,11 @@ public class ProgramUI
       + "1. Chest 1\n"
       + "2. Chest 2");
 
-      string? input = ReadLine();
+      System.Console.WriteLine(" .—————.    .—————.    ");
+      System.Console.WriteLine(" |  1  |    |  2  |    ");
+      System.Console.WriteLine(" |_____|    |_____|    ");
 
+      string? input = ReadLine();
       switch (input)
       {
          case "1":
@@ -434,7 +407,6 @@ public class ProgramUI
          break;
       }
    }
-
    private void  NinthMove() 
    {
       WriteLine("\n"
@@ -443,9 +415,16 @@ public class ProgramUI
       ForegroundColor = ConsoleColor.Yellow;
       WriteLine("You have " + Points + " armor points. Do you have enough to defeat the dragon?!");
       ResetColor();
+
+      System.Console.WriteLine("_____   ,_,  _____");
+      System.Console.WriteLine(" )_  ( '-,) (  _( ");
+      System.Console.WriteLine("   )_ '-''-' _(   ");
+      System.Console.WriteLine("     )__  __(     ");
+      System.Console.WriteLine("        ))        ");
+      System.Console.WriteLine("        ((        ");
+
       WriteLine("Press any key...");
       ReadKey();
-
       if (Points >= 2450) 
       {
          ForegroundColor = ConsoleColor.Cyan;
@@ -457,6 +436,8 @@ public class ProgramUI
          EndGame(); 
       }
 
+      // else if (Points >= 2000)
+      //&& Points < 2250
       else if (Points >= 2000) //&& Points < 2250 It works without it this because we placed >=2450 above this and the computer reads top to bottom.
       {
          ForegroundColor = ConsoleColor.Yellow;
@@ -467,7 +448,6 @@ public class ProgramUI
          WriteLine("THE END!");
          EndGame(); 
       }
-
       else {
          ForegroundColor = ConsoleColor.Red;
          WriteLine("\n"
@@ -477,5 +457,4 @@ public class ProgramUI
          EndGame(); 
       }
    }
-
 }
