@@ -1,8 +1,9 @@
 using static System.Console;
 
-public class ProgramUI {
+public class ProgramUI 
+{
    private Knight knight = new Knight();
-   public int Points = 200;
+   public int Points; //It was not starting with 200 points, but need this to use Points.
 
 
    public void Run()
@@ -13,13 +14,16 @@ public class ProgramUI {
    private void RunApplication()
    {
       bool isRunning = true;
+
       while (isRunning)
       {
-         System.Console.WriteLine("Welcome To Dragon Slayer\n" +
-         "1. Start Game\n" +
-         "2. End Game\n");
+         WriteLine("\n"
+         + "Welcome To Dragon Slayer!\n"
+         + "\n"
+         + "1. Start Game\n" 
+         + "2. End Game\n");
 
-         string? userInput = Console.ReadLine();
+         string? userInput = ReadLine();
 
          switch (userInput)
          {
@@ -36,7 +40,7 @@ public class ProgramUI {
             break; 
 
             default:
-            System.Console.WriteLine("Invalid selection. Please try again!");
+            WriteLine("Invalid selection. Please try again!");
             break;
             }
       }
@@ -45,428 +49,434 @@ public class ProgramUI {
    private void StartGame() //Method to begin playing the game
    {
       Clear();
-    //   while (knight.IsAlive) //Checks to see if Knight is alive
-    //   {
-      WriteLine("Welcome to your journey!");
-      WriteLine("The princess has been taken by a dragon...You're a knight of the Round Table and you must SAVE HER! \n"
-      + "Survive the 3 castle levels to reach the dragon. Defeat the dragon to save the princess!!");
-      WriteLine("Press any key to open the castle doors");
+      WriteLine("Welcome to your journey!\n"
+      + "");
+      Points = 200; //Moved points here to have 200 points start with each game.
+      WriteLine("The princess has been taken by an evil dragon...You're a knight of the Round Table and you MUST SAVE HER!\n"
+      + "Survive the 3 castle levels to reach the Tower where the princess is being held. Defeat the dragon to save the princess!\n"
+      + "\n"
+      + "Choose a direction to move through the castle. Gain as many armor points as you can along the way. Make good choices because a wrong move could be costly.");
+      WriteLine("Press any key to open the castle doors.");
       ReadKey();
       KnightMove();
-        //   }
-
-        // else {
-        //    if  (knight.Points = 0) {
-        //       WriteLine("You're DEAD! You lost all your armor. Better luck next time!");
-        //       EndGame();
-        //    }
-
-        // }
-
       ReadKey();
    }
 
    private bool EndGame() //Method that ends the game
    {
       PressAnyKey();
+      Points = 0; //If you died or restarted the game you would continue racking up points even after defeating the dragon.
       return false;
    }
 
    private void PressAnyKey() //Method to read key inputs
    {
-      System.Console.WriteLine("Press any key to continue");
+      WriteLine("Press any key to continue.");
       ReadKey();
    }
 
-   private void KnightMove() {
-      WriteLine("You open the door and you see two paths, left and straight. Choose a path. \n" 
-      + "1. left \n" 
-      + "2. straight");
+   private void KnightMove() 
+   {
+      WriteLine("\n" //Adding a blank line for better readability
+      + "You open the castle door and you see two paths in front of you: left and straight. Choose a path.\n" 
+      + "1. Left\n" 
+      + "2. Straight");
 
-      string? input = Console.ReadLine();
+      string? input = ReadLine();
 
       switch (input)
       {
          case "1":
-         System.Console.WriteLine("You turn left. You reach another two paths.");
+         WriteLine("You turn left. Immediately you see another two paths in front of you.");
          FirstMove();
          break;
          case "2":
-         System.Console.WriteLine("You walk straight. There is a long dark hallway. You walked to a dead end. Turn back!");
+         WriteLine("You walk straight ahead. There is a long dark hallway. You walked into a dead end. Turn back!");
          KnightMove();
          break;
          default:
-         System.Console.WriteLine("Invalid selection. Please try again!");
+         WriteLine("Invalid selection. Please try again!");
          break;
       }
-    // switch case with dead end and new first move method.
    }
 
    private void FirstMove() 
    {
-      System.Console.WriteLine("You have reached two paths: straight and right. Choose a path.\n"
-      + "1. straight\n"
-      + "2. right");
+      WriteLine("\n"
+      + "The two paths in front of you are straight and right. Choose a path.\n"
+      + "1. Straight\n"
+      + "2. Right");
 
-      string? input = Console.ReadLine();
+      string? input = ReadLine();
       
       switch (input)
       {
          case "1":
-         System.Console.WriteLine("You walk straight ahead. There is a brick wall. Turn back!");
+         WriteLine("You walk straight ahead. There is a nothing but a brick wall. Turn back!");
          FirstMove();
          break;
          case "2":
-         System.Console.WriteLine("You turn right. You walk down a long dark hallway. You finally reach the end and come onto two paths.");
+         WriteLine("You turn right. You walk down a long dark hallway. You finally reach the end and come onto two paths.");
          SecondMove();
          break;
          default:
-         System.Console.WriteLine("Invalid selection. Please try again!");
+         WriteLine("Invalid selection. Please try again!");
          break;
       }
    }
 
    private void SecondMove()
    {
-      System.Console.WriteLine("You have reached two paths: straight and right. Choose a path.\n"
-      + "1. straight\n"
-      + "2. right");
+      WriteLine("\n"
+      + "The two paths you reached are straight and right. Choose a path.\n"
+      + "1. Straight\n"
+      + "2. Right");
 
-      string? input = Console.ReadLine();
+      string? input = ReadLine();
       
       switch (input)
       {
          case "1":
-         System.Console.WriteLine("You walk straight ahead. It's a dead end. Turn back!");
+         WriteLine("You walk straight ahead. It's a dead end. Turn back!");
          SecondMove();
          break;
          case "2":
-         System.Console.WriteLine("You turn right. There is a stairway. You walk up the stairs. CONGRATULATIONS! You've made it to LEVEL TWO. There is something shiny...");
+         ForegroundColor = ConsoleColor.Blue;
+         WriteLine("You turn right. There is a long red stairway. You walk up the stairs. CONGRATULATIONS!!! You've made it to LEVEL TWO. There is something shiny up ahead...");
+         ResetColor();
          ThirdMove();
          break;
          default:
-         System.Console.WriteLine("Invalid selection. Please try again!");
+         WriteLine("Invalid selection. Please try again!");
          break;
       }
    }
 
    private void ThirdMove()
    {
-      System.Console.WriteLine("At the top of the staircase you see a bright gold treasure chest!!! You have received 250 points!");
-      Points= Points + 250;
-      System.Console.WriteLine("You now have " + Points + " points!");
-      System.Console.WriteLine("Now you see there are two paths ahead: left and right. Choose a path.\n"
-      + "1. left\n"
-      + "2. right");
+      ForegroundColor = ConsoleColor.Yellow;
+      WriteLine("\n"
+      + "As you reach the top of the staircase you see a bright gold treasure chest!!! You have received 250 armor points!");
+      Points = Points + 250;
+      WriteLine("You now have " + Points + " armor points!");
+      ResetColor();
+      WriteLine("Now you see there are two paths ahead: left and right. Choose a path.\n"
+      + "1. Left\n"
+      + "2. Right");
 
-      string? input = Console.ReadLine();
+      string? input = ReadLine();
 
       switch (input)
       {
          case "1":
-         System.Console.WriteLine("You turn left. There is nothing there but cobwebs. Turn back! \n"
-         + "Once you turn back you take the other path.");
-          FourthMove();
+         WriteLine("You turn left. There is nothing there but cobwebs. Turn back! \n"
+         + "You turn back and go right instead.");
+         FourthMove();
          break;
          case "2":
-         System.Console.WriteLine("You turn right. You go around a hallway with some twists and turns. You reach another two paths.");
-            FourthMove();
-            break;
-            default:
-            System.Console.WriteLine("Invalid selection. Please try again!");
-            break;
+         WriteLine("You turn right. You go around a hallway with some twists and turns. You reach another two paths.");
+         FourthMove();
+         break;
+         default:
+         WriteLine("Invalid selection. Please try again!");
+         break;
       }
    }
 
    private void FourthMove() 
    {
-      System.Console.WriteLine("Now you see there are two paths ahead: left and right. Choose a path.\n"
-      + "1. left\n"
-      + "2. right");
+      WriteLine("\n"
+      + "Now you see there are two paths ahead: left and right. Choose a path.\n"
+      + "1. Left\n"
+      + "2. Right");
 
-      string? input = Console.ReadLine();
+      string? input = ReadLine();
 
       switch (input)
       {
          case "1":
-         System.Console.WriteLine("You turn left.");
+         WriteLine("You turn left. It's very dark and you can't quite see, but you keep walking.");
          ChestDeadMove();
          break;
          case "2":
-         System.Console.WriteLine("You turn right. After walking down a hall you come upon a man blocking your path.");
-            FifthMove();
-            break;
-            default:
-            System.Console.WriteLine("Invalid selection. Please try again!");
-            break;
+         WriteLine("You turn right. After walking down a hall you come upon a strange figure blocking your path. You get closer and...");
+         FifthMove();
+         break;
+         default:
+         WriteLine("Invalid selection. Please try again!");
+         break;
       }
    }
 
    private void ChestDeadMove() 
    {
-      System.Console.WriteLine("After taking some turn you find a door covered in blood. Shall you go in or turn back... \n"
+      WriteLine("\n"
+      + "After taking some turns in the dark you find a door covered in blood. Shall you go in or should you turn back...?\n"
       + "1. Open the door...\n"
-      + "2. Turn around and leave");
+      + "2. Turn around and leave! I'm not crazy.");
 
-      string? input = Console.ReadLine();
+      string? input = ReadLine();
 
       switch (input)
       {
          case "1":
-         System.Console.WriteLine("You find a Chest and gain 200 points! ");
-         Points= Points + 200;
-         System.Console.WriteLine("You now have " + Points + " points!\n"
-         + "Seeing there are no other paths you go back the way you came and take the other path.");
+         ForegroundColor = ConsoleColor.Yellow;
+         WriteLine("You're a brave knight! You open the door to find another golden chest and gain 200 armor points! ");
+         Points = Points + 200;
+         WriteLine("You now have " + Points + " armor points!");
+         ResetColor();
+         WriteLine("Seeing there are no other paths you go back the way you came and take the other path. After walking down a hall you come upon a strange figure blocking your path. You get closer and...");
          FifthMove();
          break;
          case "2":
-         System.Console.WriteLine("You go back and take the other path... After walking down a hall you come upon a man blocking your path.");
-            FifthMove();
-            break;
-            default:
-            System.Console.WriteLine("Invalid selection. Please try again!");
-            break;
+         WriteLine("You go back and take the other path...After walking down a hall you come upon a strange figure blocking your path. You get closer and...");
+         FifthMove();
+         break;
+         default:
+         WriteLine("Invalid selection. Please try again!");
+         break;
       }
    }
 
    private void FifthMove() 
    {
-      System.Console.WriteLine("Wizard: Hello, pick a box and I will let you through.\n"
-      + "1. box 1 \n"
-      + "2. box 2 \n"
-      + "3. box 3");
+      WriteLine("\n"
+      + "You see the dark figure is a Wizard!\n"
+      + "The wizard speaks to you: 'Hello Knight of the Round Table. You're a long way from home. You shall not pass until we play a little game. Pick a box and I will let you through. Choose wisely.' The wizard laughs eerily.\n"
+      + "1. Box 1 \n"
+      + "2. Box 2 \n"
+      + "3. Box 3");
 
-      string? input = Console.ReadLine();
+      string? input = ReadLine();
 
       switch (input)
       {
          case "1":
-         System.Console.WriteLine("Sorry, You have open a box containing a bomb. You Died ");
-        EndGame();
+         ForegroundColor = ConsoleColor.Red;
+         WriteLine("Ah you have opened a box containing an explosive potion. You lost all your armor points and you died immediately!");
+         ResetColor();
+         EndGame();
          break;
          case "2":
-         System.Console.WriteLine("You found the holy sword worth 100 points. ! Let it aid you on your quest! ");
-         Points= Points + 100;
-         System.Console.WriteLine("You now have " + Points + " points");
-         // add +100 points 
+         ForegroundColor = ConsoleColor.Yellow;
+         WriteLine("Oh my! You found the Holy Sword worth 100 armor points! Let it aid you on your quest!");
+         Points = Points + 100;
+         WriteLine("You now have " + Points + " armor points"); // add +100 points
+         ResetColor();
          SixthMove();
          break;
          case "3":
-         System.Console.WriteLine("Sorry, I must take 200 points.");
-         Points= Points - 200;
-         System.Console.WriteLine("You now have " + Points + " points!");
-          // add -200 points deduction
-          SixthMove();
+         ForegroundColor = ConsoleColor.Red;
+         WriteLine("What part of choose wisely did you not understand?! Now I must take 200 armor points. Get out of my sight.");
+         Points = Points - 200;
+         WriteLine("You now have " + Points + " armor points!"); // add -200 points deduction
+         ResetColor();
+         SixthMove();
          break;
-            default:
-            System.Console.WriteLine("Invalid selection. Please try again!");
-            break;
+         default:
+         WriteLine("Invalid selection. Please try again!");
+         break;
       }
    }
 
-  private void SixthMove()
+   private void SixthMove()
    {
-      System.Console.WriteLine("You have reached two paths: straight and right. Choose a path.\n"
-      + "1. left\n"
-      + "2. right\n"
-      + "3. straight");
+      WriteLine("\n"
+      + "You leave the wizard feeling a bit dazed. As you gather yourself, you see that you have reached three paths this time: left, right, and straight. Choose a path.\n"
+      + "1. Left\n"
+      + "2. Straight\n"
+      + "3. Right");
 
-      string? input = Console.ReadLine();
+      string? input = ReadLine();
       
       switch (input)
       {
          case "1":
-         System.Console.WriteLine("You walk left ahead. It's a dead end. Turn back!");
+         WriteLine("You turn left. It's a dead end. Turn back!");
          SixthMove();
          break;
-          case "2":
-         System.Console.WriteLine("You walk right ahead. It's a dead end. Turn back!");
-         SixthMove();
-         break;
-         case "3":
-         System.Console.WriteLine("You got straight. There is a stairway. You walk up the stairs. CONGRATULATIONS! You've made it to LEVEL THREE. There is something shiny...");
-         System.Console.WriteLine("At the top of the staircase you see a bright gold treasure chest!!! You have received 500 points!");
+         case "2":
+         WriteLine("You walk straight ahead. There is a small green stairway.");
+         ForegroundColor = ConsoleColor.Blue;
+         WriteLine("You walk up the stairs. CONGRATULATIONS!!! You've made it to LEVEL THREE. There is something shiny glowing in the distance...");
+         ResetColor();
+         ForegroundColor = ConsoleColor.Yellow;
+         WriteLine("...At the top of the staircase you see a bright gold treasure chest!!! You have received 500 armor points!");
          Points= Points + 500;
-         System.Console.WriteLine("You now have " + Points + " points!");
+         WriteLine("You now have " + Points + " armor points!");
+         ResetColor();
          SeventhMove();
          break;
+         case "3":
+         WriteLine("You turn right. There are bats at the end of the dark hallway. Turn back!");
+         SixthMove();
+         break;
          default:
-         System.Console.WriteLine("Invalid selection. Please try again!");
+         WriteLine("Invalid selection. Please try again!");
          break;
       }
    }
 
- private void SeventhMove()
+   private void SeventhMove()
    {
-      System.Console.WriteLine("Now you see there are two paths ahead: left and straight. Choose a path.\n"
-      + "1. left\n"
-      + "2. straight");
+      WriteLine("\n"
+      + "You're almost to the tower. You can hear the dragon roaring in the distance. Now you see there are two paths ahead: left and straight. Choose a path.\n"
+      + "1. Left\n"
+      + "2. Straight");
 
-      string? input = Console.ReadLine();
+      string? input = ReadLine();
 
       switch (input)
       {
          case "1":
-         System.Console.WriteLine("You turn left.  ");
-         EightMove(); 
+         WriteLine("You turn left. There is a long, dark winding hallway. You begin walking down it.");
+         EighthMove(); 
          break;
          case "2":
-         System.Console.WriteLine("You turn right.");
-            ChestDead2Move(); 
-            break;
-            default:
-            System.Console.WriteLine("Invalid selection. Please try again!");
-            break;
+         WriteLine("You walk straight ahead. There is a dull light glowing far in the distance...");
+         ChestDead2Move(); 
+         break;
+         default:
+         WriteLine("Invalid selection. Please try again!");
+         break;
       }
    }
 
-   private void  EightMove() {
-System.Console.WriteLine("You go down a dark hallway you see two chest and you can only open one. Choose wisely!\n"
-      + "1. chest 1 \n"
-      + "2. chest 2");
+   private void ChestDead2Move() 
+   {
+      WriteLine("\n"
+      + "You follow the glow and walk through some twists and turns. You reach another two paths. One path is dark and the other has the dull glow you have been following. Choose a path.\n"
+      + "1. Left\n"
+      + "2. Right");
 
-      string? input = Console.ReadLine();
+      string? input = ReadLine();
 
       switch (input)
       {
          case "1":
-         System.Console.WriteLine("You open the first. You been bamboozled it was a mimic monster. It BITES you and you lose all your points\n"
-          + "GAME OVER");
-         Points = 0; 
-          EndGame(); 
+         WriteLine("You turn left. You see a skeleton leaning against the dark wall. You RUN back the other way!");
+         ChestDead2Move();
          break;
          case "2":
-         System.Console.WriteLine("You open the second chest. You find rare armor and gain 1000 points.");
-         Points = Points + 1000;
-         System.Console.WriteLine("You now have " + Points + " points!");
-            NinthMove(); 
-            break;
-            default:
-            System.Console.WriteLine("Invalid selection. Please try again!");
-            break;
-      }
-   }
-
-    private void ChestDead2Move() 
-   {
-      System.Console.WriteLine(" You go around a hallway with some twists and turns. You reach another two paths. \n"
-      + "1. right\n"
-      + "2. left");
-
-      string? input = Console.ReadLine();
-
-      switch (input)
-      {
-         case "1":
-         System.Console.WriteLine("You turn right.");
+         WriteLine("You turn right and follow the glow in the distance. You feel that you must be getting close.");
          ChestDead3Move();
          break;
-         case "2":
-         System.Console.WriteLine("You turn left. You see a skeleton leaning against a dead end and you turn back.");
-            ChestDead2Move();
-            break;
-            default:
-            System.Console.WriteLine("Invalid selection. Please try again!");
-            break;
+         default:
+         WriteLine("Invalid selection. Please try again!");
+         break;
       }
    }
 
-    private void ChestDead3Move() 
+   private void ChestDead3Move() 
    {
-      System.Console.WriteLine(" You go around a hallway with some twists and turns. You reach another two paths. \n"
-      + "1. right\n"
-      + "2. left");
+      WriteLine("\n"
+      + "You walk down the hallway with even more twists and turns. You reach another two paths. They both have a dull light shining in the distance. Curious.\n"
+      + "1. Left\n"
+      + "2. Right");
 
-      string? input = Console.ReadLine();
+      string? input = ReadLine();
 
       switch (input)
       {
          case "1":
-         System.Console.WriteLine("You turn right. You go down a long hallway and find a shiny chest with boots worth 400 points");
-         Points = Points + 400;
-         System.Console.WriteLine("You now have " + Points + " points!/n"
-         + "You go all the way back to the stair case and take the other path.");
-         EightMove();
-         break;
-         case "2":
-         System.Console.WriteLine("You turn left. You fall through the floor and DIED!!!\n"
-          + "GAME OVER");
+         ForegroundColor = ConsoleColor.Red;
+         WriteLine("You turn left. There is a bright ball of light floating at the end of the hallway. You reach for it and you fall through the floor and DIE!!!");
+         ResetColor();
+         WriteLine("GAME OVER!");
          Points = 0; 
          EndGame(); 
-            break;
-            default:
-            System.Console.WriteLine("Invalid selection. Please try again!");
-            break;
+         break;
+         case "2":
+         ForegroundColor = ConsoleColor.Yellow;
+         WriteLine("You turn right. You walk down a long hallway and find a shiny glowing chest with boots worth 400 armor points!");
+         Points = Points + 400;
+         WriteLine("You now have " + Points + " armor points!");
+         ResetColor();
+         WriteLine("There is nowhere else to go. You walk all the way back to the staircase and take the other path.");
+         EighthMove();
+         break;
+         default:
+         WriteLine("Invalid selection. Please try again!");
+         break;
       }
    }
 
-  private void  NinthMove() {
-      System.Console.WriteLine("You open the doors and see the dragon!!! You fight the dragon.");
-      System.Console.WriteLine("Press any key");
-      ReadKey(); 
-      System.Console.WriteLine(Points);
+   private void  EighthMove()
+   {
+      WriteLine("\n"
+      + "At the end of the dark hallway you see two chests. The sign above them says that you can only open one. Choose wisely!\n"
+      + "1. Chest 1\n"
+      + "2. Chest 2");
 
-      if (Points >= 2450) {
-      System.Console.WriteLine("You kill the dragon and save the princess. The princess is so moved by your efforts.\n"
-      + "You marry the princes and become the king! \n"
-      + "THE END");
+      string? input = ReadLine();
+
+      switch (input)
+      {
+         case "1":
+         ForegroundColor = ConsoleColor.Red;
+         WriteLine("You open the first chest and see gold. You have been bamboozled! It was a mimic monster. It BITES you and you lose all your armor points!\n"
+         + "GAME OVER!");
+         ResetColor();
+         Points = 0; 
+         EndGame(); 
+         break;
+         case "2":
+         ForegroundColor = ConsoleColor.Yellow;
+         WriteLine("You open the second chest. You find rare armor and gain 1000 armor points.");
+         Points = Points + 1000;
+         WriteLine("You now have " + Points + " armor points!");
+         ResetColor();
+         WriteLine("You see that there is a opening in the wall behind the chests. You crawl through the opening...");
+         NinthMove(); 
+         break;
+         default:
+         WriteLine("Invalid selection. Please try again!");
+         break;
+      }
+   }
+
+   private void  NinthMove() 
+   {
+      WriteLine("\n"
+      + "...You crawl through the opening in the wall and see large golden doors. You hear low growling behind the door. You must be at the entrance of the tower. You gather all the strength you can muster and open the doors and see a large black dragon with red eyes that pierce your soul! He lunges at you and you smack him away with your sword. You see the princess chained up at the end of the room. You MUST save her. The dragon flies into the air and rushes towards you...\n"
+      + "");
+      ForegroundColor = ConsoleColor.Yellow;
+      WriteLine("You have " + Points + " armor points. Do you have enough to defeat the dragon?!");
+      ResetColor();
+      WriteLine("Press any key...");
+      ReadKey();
+
+      if (Points >= 2450) 
+      {
+         ForegroundColor = ConsoleColor.Cyan;
+         WriteLine("\n"
+         + "You block his teeth with your shield and stab him underneath as he flies over you. You have SLAYED THE DRAGON! You release the princess from her chains. The princess is so moved by your victory!\n"
+         + "You and the princess are wed and you become KING in Happily Ever After!");
+         ResetColor();
+         WriteLine("THE END!");
          EndGame(); 
       }
 
-     else if (Points >= 1900 && Points < 2450){
-        System.Console.WriteLine("You kill the dragon and save the princess\n" 
-        + "The princess is grateful, she throws you a party and you gain a nobel title. THE END");
-        EndGame(); 
-     }
+      else if (Points >= 2000)
+      //&& Points < 2250
+      {
+         ForegroundColor = ConsoleColor.Yellow;
+         WriteLine("\n"
+         + "You block his teeth with your shield and your sword is knocked away. The dragon has you cornered! As he bares his teeth to attack you hear a slashing sound and he drops to the ground. The princess has your sword and has slayed the dragon! The sword must have fallen within her reach and she escaped the chains and saved you!\n"
+         + "The princess is grateful for you help. She throws you a party and you gain a noble title.");
+         ResetColor();
+         WriteLine("THE END!");
+         EndGame(); 
+      }
 
-     else {
-      System.Console.WriteLine("You didn't have enough points to defeat the dragon so you DIED! \n" 
-      + "Start Over");
-        EndGame(); 
-     }
-
+      else {
+         ForegroundColor = ConsoleColor.Red;
+         WriteLine("\n"
+         + "You try to block his teeth with your shield, but it breaks immediately. You are crushed by the dragon and DIE.\n" 
+         + "You have FAILED to save the princess and died with DISHONOR!");
+         ResetColor();
+         EndGame(); 
+      }
    }
 
-
-
-    // switch cases going through castle
-
 }
-
-
-
-
-
-
-/*
-princess in a castle...
-the princess has been taken by a dragon...
-right, left, up, back
-3 levels...
-knight dies if points are less then or equal to 0.
-
-base level -> 200 point armor and weapons
-   -> gains armor and weapons points as he goes
-   -> by end 2000 points must be needed to kill dragon or he dies
-
-level 1
-   -> 200 points to start + level 1 treasure chest = 250 points
-   finish 1 level = 450 points at first level
-   -> wizard -> option 1 - 500 points
-            + option 2 sword upgrade 100 points
-            + option 3 -200 points
-   -> level one dead end chest 200 points
-
-level 2
-   -> chest 500 points
-   -> level 2 dead end chest 400 points
-
-level 3
-   -> chest 1000 points
-   -> you fight the dragon - points less then 2000 death it swallows you.
-                           - points greater then 2000 you behead the dragon with sword
-
-final
--> max total points you can get marry the princess and become king
--> if then she throws you a party and say thanks and goodbye.
-*/
